@@ -23,11 +23,13 @@ function App() {
     } else {
       setLike(true)
     }
+    //setLike(!like)
   }
+  
 
   return (
     <div>
-      <button onClick={clickLike}>like</button>
+      <button onClick={() => setLike(!like)}>like</button>
       <span>{heart ? heart : ''}</span>
     </div>
   );
