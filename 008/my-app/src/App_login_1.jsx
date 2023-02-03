@@ -4,8 +4,7 @@ function App() {
   const handleLoginSubmit = (e) => {
     e.preventDefault();
     console.log("submit");
-    alert(`id : ${id}, pw : ${pw}`);
-  };
+  }
 
   const handleLoginInput = (e) => {
     console.log("id", e.target.value);
@@ -30,4 +29,4 @@ function App() {
   );
 }
   
-  export default App;
+export default App;

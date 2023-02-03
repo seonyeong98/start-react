@@ -1,6 +1,22 @@
 import { useState } from "react";
 
-function App() {
+let user = {
+  login: false,
+  id: 'seonyeong@naver.com',
+  nickname: 'seon0'
+};
+
+function Homepage() {
+
+  return (
+    <div>
+      <h1>홈페이지에 오신 것을 환영합니다!</h1>
+      <button onClick={handleLogin}>로그아웃</button>
+    </div>
+  )
+}
+
+function Login() {
   const [id, setId] = useState("");
   const [pw, setPw] = useState("");
 
@@ -13,7 +29,10 @@ function App() {
     if(pw === '') {
       alert("비밀번호를 입력하세요.")
     }
-  }
+
+    alert('로그인 되었습니다.');
+    user['login'] = true
+  };
 
   const handleIdInput = (e) => {
     console.log("id", e.target.value);
@@ -40,4 +59,10 @@ function App() {
   );
 }
 
+function App() {
+  return (
+  <div>{user.login ? <Homepage/> : <Login/>}</div>
+  )
+}
+  
 export default App;
