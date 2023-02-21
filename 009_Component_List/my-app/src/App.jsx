@@ -1,3 +1,5 @@
+import react from "react";
+
 const PdList = () => {
   const productList = {
     products: [
@@ -27,21 +29,12 @@ const PdList = () => {
 
   return (
     <div>
-      {/* {productList.products.map((item, idx) => 
+      {productList.products.map((item, idx) => 
       <li key={idx} style={{listStyle: "none"}}>
         <h2>{idx+1} {item.title}</h2>
         <span>{item.price}원</span>
       </li>)
-      } */}
-      
-      {productList.products.map((el, index) => {
-        return (
-          <div key={el.id}>
-            <h2>{el.title}</h2>
-            <p>{el.price}</p>
-          </div>
-        )
-      })}
+      }
     </div>
   )
 }
