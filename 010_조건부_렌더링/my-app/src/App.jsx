@@ -1,58 +1,52 @@
-import React, { useState } from "react";
-import Detail from "./Components/Detail";
-import Question from "./Components/Question";
-import Review from "./Components/Review";
+import { useState } from "react"
+import One from "./Componenets/One"
+import Two from "./Componenets/Two"
+import Three from "./Componenets/Three"
 
-const ContentsContainer = ({ listName }) => {
-  if (listName === "detail") {
-    return <Detail />;
-  } else if (listName === "qa") {
-    return <Question />;
-  } else if (listName === "review") {
-    return <Review />;
-  }
-};
-
-function NavBar() {
-  const [listName, setListName] = useState("detail");
-  const checkId = (e) => {
-    setListName(e.target.id);
-  };
-
-  return (
-    <>
-      <nav>
-        <ul>
-          <li
-            id="detail"
-            style={
-              listName === "detail" ? { color: "red" } : { color: "black" }
-            }
-            onClick={checkId}
-          >
-            상세정보
-          </li>
-          <li
-            id="qa"
-            onClick={checkId}
-            style={listName === "qa" ? { color: "red" } : { color: "black" }}
-          >
-            Q&A
-          </li>
-          <li
-            id="review"
-            onClick={checkId}
-            style={
-              listName === "review" ? { color: "red" } : { color: "black" }
-            }
-          >
-            Review
-          </li>
-        </ul>
-      </nav>
-      <ContentsContainer listName={listName} />
-    </>
-  );
+function ContentsContainer({listName}){
+    if(listName === 'one'){
+        return <One/>
+    } else if(listName === 'two'){
+        return <Two/>
+    } else if(listName === 'three'){
+        return <Three/>
+    }
+    return null
 }
 
-export default NavBar;
+function App(){
+    const [listName, setListName] = useState('one') //초기값 one
+    const handleCheckId = (e) => { //event가 들어오면 화살표 함수를 setListName으로 값을 변경
+        setListName(e.target.id)
+    }
+
+    return (
+        <>
+            <nav>
+                <ul>
+                    <li
+                        id ='one'
+                        style = {listName === 'one'? {color:'red'}: {color:'black'}}
+                        onMouseOver = {handleCheckId}
+                    >One
+                    </li>
+                    <li
+                        id ='two'
+                        style = {listName === 'two'? {color:'red'}: {color:'black'}}
+                        onMouseOver = {handleCheckId}
+                    >Two
+                    </li>
+                    <li
+                        id ='three'
+                        style = {listName === 'three'? {color:'red'}: {color:'black'}}
+                        onMouseOver = {handleCheckId}
+                    >Three
+                    </li>
+                </ul>
+            </nav>
+            <ContentsContainer listName={listName}/>
+        </>
+    )
+}
+
+export default App;
