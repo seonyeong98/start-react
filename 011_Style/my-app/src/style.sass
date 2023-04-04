@@ -1,0 +1,10 @@
+.a {
+  /* style 1 */
+  &::after {
+    /* style 2 */
+  }
+}
+
+// 컴파일 후
+// a { /* style 1 */ }
+// a::after { /* style 2 */ }

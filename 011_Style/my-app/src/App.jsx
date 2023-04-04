@@ -1,26 +1,33 @@
-import {react} from "react";
-import styled from "styled-components";
+import React from "react";
+import styled, {css} from "styled-components";
 
-const ContentOne = styled.div`
-  margin: 40px;
-`
 
-const ContentTwo = styled.div`
+const One = css`
   color: red;
-`
+`;
 
-const ContentThree = styled(ContentTwo)`
+const Two = css`
   border: 1px solid black;
-`
+`;
 
-function App(){
-  return(
-    <div>
-      <ContentOne>hello world</ContentOne>
-      <ContentTwo>hello world</ContentTwo>
-      <ContentThree>hello world</ContentThree>
-    </div>
-  );
-}
+const Three = styled.div`
+  ${One}
+  ${Two}
+`
+const UniAfter = styled.div`
+    &:after {
+    color: orange;
+    content: "!!";
+}`
+
+
+const App = () => {
+	return (
+    <>
+    <Three>Lorem Ipsum dolor</Three>
+    <UniAfter>style style style</UniAfter>
+    </>
+	);
+};
 
 export default App;
